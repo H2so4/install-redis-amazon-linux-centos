@@ -12,15 +12,14 @@ echo "*****************************************"
 echo " 1. Prerequisites: Install updates, set time zones, install GCC and make"
 echo "*****************************************"
 sudo yum -y update
-sudo ln -sf /usr/share/zoneinfo/America/Indianapolis /etc/localtime
 sudo yum -y install gcc gcc-c++ make 
 echo "*****************************************"
-echo " 2. Download, Untar and Make Redis 2.6"
+echo " 2. Download, Untar and Make Latest Redis"
 echo "*****************************************"
-sudo wget http://redis.googlecode.com/files/redis-2.6.0-rc3.tar.gz
-sudo tar xzf redis-2.6.0-rc3.tar.gz
-sudo rm redis-2.6.0-rc3.tar.gz -f
-cd redis-2.6.0-rc3
+sudo wget http://download.redis.io/redis-stable.tar.gz
+sudo tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
 sudo make
 sudo make install
 echo "*****************************************"
